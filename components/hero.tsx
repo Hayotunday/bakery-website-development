@@ -40,10 +40,10 @@ export function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-80">
+      {/* <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-80">
         <span className="text-xs text-white uppercase tracking-widest font-bold">Discover More</span>
         <ChevronDown className="text-white w-6 h-6" />
-      </div>
+      </div> */}
     </section>
   )
 }

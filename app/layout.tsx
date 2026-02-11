@@ -9,7 +9,7 @@ const epilogue = Epilogue({ subsets: ['latin'], variable: '--font-epilogue' })
 export const metadata: Metadata = {
   title: 'Perfect White | Exquisite Cakes & Events',
   description: 'Handcrafted celebration cakes and bespoke event catering designed for your most precious moments. Sophistication meets sweet perfection.',
-  generator: 'v0.app',
+  // generator: 'v0.app',
 }
 
 export const viewport: Viewport = {

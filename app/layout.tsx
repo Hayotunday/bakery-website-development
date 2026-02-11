@@ -9,7 +9,7 @@ const epilogue = Epilogue({ subsets: ['latin'], variable: '--font-epilogue' })
 export const metadata: Metadata = {
   title: 'Perfect White | Exquisite Cakes & Events',
   description: 'Handcrafted celebration cakes and bespoke event catering designed for your most precious moments. Sophistication meets sweet perfection.',
-  generator: 'v0.app',
+  // generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={epilogue.variable}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased" suppressHydrationWarning>{children}</body>
     </html>
   )
 }

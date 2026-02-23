@@ -1,17 +1,25 @@
-import { LayoutGrid, List, Search, Plus } from 'lucide-react'
+import { LayoutGrid, List, Search, Plus } from "lucide-react";
 
 interface PortfolioHeaderProps {
-  onAddClick: () => void
-  viewMode: 'grid' | 'list'
-  onViewModeChange: (mode: 'grid' | 'list') => void
+  onAddClick: () => void;
+  viewMode: "grid" | "list";
+  onViewModeChange: (mode: "grid" | "list") => void;
 }
 
-export function PortfolioHeader({ onAddClick, viewMode, onViewModeChange }: PortfolioHeaderProps) {
+export default function PortfolioHeader({
+  onAddClick,
+  viewMode,
+  onViewModeChange,
+}: PortfolioHeaderProps) {
   return (
     <header className="h-20 border-b border-slate-100 bg-white flex items-center justify-between px-8 shrink-0">
       <div>
-        <h2 className="text-2xl font-bold text-slate-900">Portfolio Management</h2>
-        <p className="text-sm text-slate-500">Curate and manage Perfect Whites artisanal showcase</p>
+        <h2 className="text-2xl font-bold text-slate-900">
+          Portfolio Management
+        </h2>
+        <p className="text-sm text-slate-500">
+          Curate and manage Perfect Whites artisanal showcase
+        </p>
       </div>
 
       <div className="flex items-center gap-4">
@@ -38,26 +46,26 @@ export function PortfolioHeader({ onAddClick, viewMode, onViewModeChange }: Port
       {/* View Mode Toggle */}
       <div className="flex gap-2 ml-4">
         <button
-          onClick={() => onViewModeChange('grid')}
+          onClick={() => onViewModeChange("grid")}
           className={`p-2 rounded-lg transition-all ${
-            viewMode === 'grid'
-              ? 'bg-white shadow-sm border border-slate-200 text-slate-900'
-              : 'text-slate-400 hover:text-slate-600'
+            viewMode === "grid"
+              ? "bg-white shadow-sm border border-slate-200 text-slate-900"
+              : "text-slate-400 hover:text-slate-600"
           }`}
         >
           <LayoutGrid className="w-5 h-5" />
         </button>
         <button
-          onClick={() => onViewModeChange('list')}
+          onClick={() => onViewModeChange("list")}
           className={`p-2 rounded-lg transition-all ${
-            viewMode === 'list'
-              ? 'bg-white shadow-sm border border-slate-200 text-slate-900'
-              : 'text-slate-400 hover:text-slate-600'
+            viewMode === "list"
+              ? "bg-white shadow-sm border border-slate-200 text-slate-900"
+              : "text-slate-400 hover:text-slate-600"
           }`}
         >
           <List className="w-5 h-5" />
         </button>
       </div>
     </header>
-  )
+  );
 }

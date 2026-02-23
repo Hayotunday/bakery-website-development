@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
 interface Product {
   id: string;
@@ -18,37 +19,44 @@ const PRODUCTS: Product[] = [
     name: "White Velvet Dream",
     description: "Madagascar vanilla bean",
     price: 85,
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    image: "/imgs/cake-assets-1.jpeg",
   },
   {
     id: "2",
     name: "Signature Croissant",
     description: "Double-buttered layers",
     price: 12,
-    image:
-      "https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    image: "/imgs/cake-assets-8.jpeg",
   },
   {
     id: "3",
     name: "Midnight Cocoa",
     description: "70% dark silk ganache",
     price: 75,
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    image: "/imgs/cake-assets-9.jpeg",
   },
   {
     id: "4",
     name: "Summer Berry Tart",
     description: "Wild harvested berries",
     price: 45,
-    image:
-      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+    image: "/imgs/cake-assets-12.jpeg",
   },
 ];
 
-export function ProductsSection() {
+export default function ProductsSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (imageUrl: string) => {
+    document.body.style.overflow = "hidden";
+    setSelectedImage(imageUrl);
+  };
+
+  const closeModal = () => {
+    document.body.style.overflow = "auto";
+    setSelectedImage(null);
+  };
 
   return (
     <section id="products" className="py-24 bg-secondary/50">
@@ -76,37 +84,57 @@ export function ProductsSection() {
           {PRODUCTS.map((product) => (
             <div
               key={product.id}
-              className="group cursor-pointer"
+              className="group"
               onMouseEnter={() => setHoveredId(product.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 shadow-xl bg-white border border-primary/5">
-                <img
+              <div
+                className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-5 shadow-xl bg-white border border-primary/5 cursor-pointer"
+                onClick={() => openModal(product.image)}
+              >
+                <Image
                   alt={product.name}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   src={product.image || "/placeholder.svg"}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-accent text-white font-bold px-6 py-2 rounded-full translate-y-4 group-hover:translate-y-0 transition-transform">
-                    Inquire Now
-                  </button>
-                </div>
-              </div>
-              <div className="flex justify-between items-start px-1">
-                <div>
-                  <h4 className="font-bold text-lg text-primary">
-                    {product.name}
-                  </h4>
-                  <p className="text-sm text-primary/50">
-                    {product.description}
-                  </p>
-                </div>
-                <span className="text-accent font-black">${product.price}</span>
               </div>
             </div>
           ))}
         </div>
       </div>
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+          onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image preview"
+        >
+          <button
+            className="absolute top-4 right-4 text-white z-[110] bg-black/50 rounded-full p-2 hover:bg-black/80 transition-colors"
+            onClick={closeModal}
+            aria-label="Close image view"
+          >
+            <X size={24} />
+          </button>
+          <div
+            className="relative max-w-4xl max-h-fit w-fit"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image itself
+          >
+            <Image
+              src={selectedImage}
+              alt="Enlarged product view"
+              width={1200}
+              height={1200}
+              className="object-contain w-full h-full rounded-lg shadow-2xl"
+              style={{ maxHeight: "90vh" }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

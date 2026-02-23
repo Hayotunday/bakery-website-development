@@ -1,8 +1,8 @@
 "use client";
 
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { ProductMenu } from "@/components/product-menu";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import ProductMenu from "@/components/product-menu";
 
 export default function GalleryPage() {
   return (

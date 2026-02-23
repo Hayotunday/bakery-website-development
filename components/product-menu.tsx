@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Heart, ShoppingBag } from "lucide-react";
+import { Heart, ShoppingBag, X } from "lucide-react";
 
 interface Product {
   id: string;
@@ -20,8 +20,7 @@ const products: Product[] = [
     name: "Velvet Chocolate Cake",
     category: "wedding-cakes",
     price: "From $85",
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop",
+    image: "/imgs/cake-assets-1.jpeg",
     description: "Decadent chocolate layers with silky ganache",
     servings: "10-12 servings",
   },
@@ -30,8 +29,7 @@ const products: Product[] = [
     name: "Rainbow Macaron Tower",
     category: "celebrations",
     price: "From $120",
-    image:
-      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&h=600&fit=crop",
+    image: "/imgs/cake-assets-2.jpeg",
     description: "Colorful handmade macarons in elegant tower",
     servings: "24 pieces",
   },
@@ -40,8 +38,7 @@ const products: Product[] = [
     name: "Buttery Croissants",
     category: "everything",
     price: "From $4.50",
-    image:
-      "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=600&fit=crop",
+    image: "/imgs/cake-assets-3.jpeg",
     description: "Classic French butter croissants, perfectly flaky",
     servings: "Individual",
   },
@@ -50,36 +47,34 @@ const products: Product[] = [
     name: "Artisan Sourdough",
     category: "everything",
     price: "From $8",
-    image:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=600&fit=crop",
+    image: "/imgs/cake-assets-4.jpeg",
     description: "Handcrafted sourdough with perfect crust",
     servings: "1 loaf",
   },
-  // {
-  //   id: '5',
-  //   name: 'Berry Tart Elegance',
-  //   category: 'celebrations',
-  //   price: 'From $65',
-  //   image: 'https://images.unsplash.com/photo-1535920527894-b40a2b77adc3?w=600&h=600&fit=crop',
-  //   description: 'Fresh berries on custard with pastry shell',
-  //   servings: '8 servings'
-  // },
-  // {
-  //   id: '6',
-  //   name: 'Tiered Wedding Cake',
-  //   category: 'wedding-cakes',
-  //   price: 'From $250',
-  //   image: 'https://images.unsplash.com/photo-1614707267537-b85faf00021b?w=600&h=600&fit=crop',
-  //   description: 'Elegant three-tier white cake with fondant',
-  //   servings: '30-40 servings'
-  // },
+  {
+    id: "5",
+    name: "Berry Tart Elegance",
+    category: "celebrations",
+    price: "From $65",
+    image: "/imgs/cake-assets-5.jpeg",
+    description: "Fresh berries on custard with pastry shell",
+    servings: "8 servings",
+  },
+  {
+    id: "6",
+    name: "Tiered Wedding Cake",
+    category: "wedding-cakes",
+    price: "From $250",
+    image: "/imgs/cake-assets-6.jpeg",
+    description: "Elegant three-tier white cake with fondant",
+    servings: "30-40 servings",
+  },
   {
     id: "7",
     name: "Corporate Catering Platter",
     category: "corporate",
     price: "From $200",
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=600&fit=crop",
+    image: "/imgs/cake-assets-7.jpeg",
     description: "Assorted pastries and savory options",
     servings: "20-25 pieces",
   },
@@ -88,8 +83,88 @@ const products: Product[] = [
     name: "Birthday Celebration Cake",
     category: "celebrations",
     price: "From $55",
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop",
+    image: "/imgs/cake-assets-8.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "9",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-9.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "10",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-10.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "11",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-11.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "12",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-12.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "13",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-13.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "14",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-14.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "15",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-15.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "16",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/cake-assets-16.jpeg",
+    description: "Custom flavored cake with personalized design",
+    servings: "15-20 servings",
+  },
+  {
+    id: "17",
+    name: "Birthday Celebration Cake",
+    category: "celebrations",
+    price: "From $55",
+    image: "/imgs/customer-1.jpeg",
     description: "Custom flavored cake with personalized design",
     servings: "15-20 servings",
   },
@@ -102,14 +177,25 @@ const categories = [
   { id: "corporate", label: "Corporate" },
 ];
 
-export function ProductMenu() {
+export default function ProductMenu() {
   const [selectedCategory, setSelectedCategory] = useState("everything");
   const [liked, setLiked] = useState<Set<string>>(new Set());
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const filteredProducts =
     selectedCategory === "everything"
       ? products
       : products.filter((p) => p.category === selectedCategory);
+
+  const openModal = (imageUrl: string) => {
+    document.body.style.overflow = "hidden";
+    setSelectedImage(imageUrl);
+  };
+
+  const closeModal = () => {
+    document.body.style.overflow = "auto";
+    setSelectedImage(null);
+  };
 
   const toggleLike = (id: string) => {
     const newLiked = new Set(liked);
@@ -168,17 +254,25 @@ export function ProductMenu() {
             >
               {/* Product Image */}
               <div className="relative h-72 md:h-80 overflow-hidden bg-gray-100">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  priority={false}
-                />
+                <div
+                  className="w-full h-full cursor-pointer"
+                  onClick={() => openModal(product.image)}
+                >
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    priority={false}
+                  />
+                </div>
                 {/* Like Button */}
                 <button
-                  onClick={() => toggleLike(product.id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleLike(product.id);
+                  }}
                   className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-all shadow-lg group-hover:scale-110"
                   aria-label="Add to favorites"
                 >
@@ -194,7 +288,7 @@ export function ProductMenu() {
 
               {/* Product Info */}
               <div className="p-6">
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent mb-2">
                     {categories.find((c) => c.id === product.category)?.label}
                   </span>
@@ -211,17 +305,17 @@ export function ProductMenu() {
                   <p className="text-xs font-semibold text-gray-500 mb-4">
                     {product.servings}
                   </p>
-                )}
+                )} */}
 
                 {/* Price and Action */}
-                <div className="flex items-center justify-between pt-4 border-t border-primary/10">
+                {/* <div className="flex items-center justify-between pt-4 border-t border-primary/10">
                   <span className="text-lg font-black text-primary">
                     {product.price}
                   </span>
                   <button className="bg-primary hover:bg-accent text-white p-2.5 rounded-full flex items-center justify-center transition-all active:scale-95 shadow-lg shadow-primary/20">
                     <ShoppingBag className="w-5 h-5" />
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
@@ -252,6 +346,38 @@ export function ProductMenu() {
           </button>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+          onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image preview"
+        >
+          <button
+            className="absolute top-4 right-4 text-white z-[110] bg-black/50 rounded-full p-2 hover:bg-black/80 transition-colors"
+            onClick={closeModal}
+            aria-label="Close image view"
+          >
+            <X size={24} />
+          </button>
+          <div
+            className="relative max-w-4xl max-h-fit w-fit"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image itself
+          >
+            <Image
+              src={selectedImage}
+              alt="Enlarged product view"
+              width={1200}
+              height={1200}
+              className="object-contain w-full h-full rounded-lg shadow-2xl"
+              style={{ maxHeight: "90vh" }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

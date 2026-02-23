@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-export function Hero() {
+export default function Hero() {
   return (
     <section className="relative w-full min-h-[90vh] flex flex-col justify-center items-center overflow-hidden">
       {/* Background Overlay */}
@@ -24,7 +24,7 @@ export function Hero() {
         </span>
         <h1 className="text-white text-5xl md:text-8xl font-black leading-tight mb-6 tracking-tighter text-balance">
           Perfectly White <br />
-          <span className="text-white italic font-light">Artisan Cakes</span>
+          <span className="text-white italic font-light">Cakes and Events</span>
         </h1>
         <p className="text-white text-lg md:text-xl font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
           Handcrafted celebration cakes and bespoke event catering designed for

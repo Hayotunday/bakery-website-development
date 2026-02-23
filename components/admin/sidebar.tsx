@@ -1,19 +1,25 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { LayoutGrid, ImageIcon, UtensilsCrossed, ShoppingBag, Settings } from 'lucide-react'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  LayoutGrid,
+  ImageIcon,
+  UtensilsCrossed,
+  ShoppingBag,
+  Settings,
+} from "lucide-react";
 
-export function Sidebar() {
-  const pathname = usePathname()
+export default function Sidebar() {
+  const pathname = usePathname();
 
   const navigationItems = [
-    { label: 'Dashboard', href: '/admin', icon: LayoutGrid },
-    { label: 'Portfolio Gallery', href: '/admin/portfolio', icon: ImageIcon },
-    { label: 'Menu Catalog', href: '/admin/menu', icon: UtensilsCrossed },
-    { label: 'Order Requests', href: '/admin/orders', icon: ShoppingBag },
-    { label: 'Admin Settings', href: '/admin/settings', icon: Settings },
-  ]
+    { label: "Dashboard", href: "/admin", icon: LayoutGrid },
+    { label: "Portfolio Gallery", href: "/admin/portfolio", icon: ImageIcon },
+    { label: "Menu Catalog", href: "/admin/menu", icon: UtensilsCrossed },
+    { label: "Order Requests", href: "/admin/orders", icon: ShoppingBag },
+    { label: "Admin Settings", href: "/admin/settings", icon: Settings },
+  ];
 
   return (
     <aside className="w-72 bg-slate-900 text-white hidden lg:flex flex-col">
@@ -25,7 +31,9 @@ export function Sidebar() {
           </div>
           <div>
             <h1 className="text-xl font-bold tracking-tight">Perfect White</h1>
-            <p className="text-[10px] uppercase tracking-widest text-slate-400">Cakes and Events</p>
+            <p className="text-[10px] uppercase tracking-widest text-slate-400">
+              Cakes and Events
+            </p>
           </div>
         </div>
       </div>
@@ -33,22 +41,22 @@ export function Sidebar() {
       {/* Navigation */}
       <nav className="flex-1 px-4 space-y-1">
         {navigationItems.map((item) => {
-          const Icon = item.icon
-          const isActive = pathname === item.href
+          const Icon = item.icon;
+          const isActive = pathname === item.href;
           return (
             <Link
               key={item.href}
               href={item.href}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                 isActive
-                  ? 'bg-accent text-white shadow-lg shadow-accent/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  ? "bg-accent text-white shadow-lg shadow-accent/20"
+                  : "text-slate-400 hover:text-white hover:bg-slate-800"
               }`}
             >
               <Icon className="w-5 h-5" />
               <span className="font-medium">{item.label}</span>
             </Link>
-          )
+          );
         })}
       </nav>
 
@@ -65,5 +73,5 @@ export function Sidebar() {
         </div>
       </div>
     </aside>
-  )
+  );
 }

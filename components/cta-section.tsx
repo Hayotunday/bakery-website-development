@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 
-export function CTASection() {
+export default function CTASection() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +23,7 @@ export function CTASection() {
         <div className="absolute -top-20 -right-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl" />
         <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-white/5 rounded-full blur-2xl" />
 
-        <div className="relative z-10 flex-1 text-center md:text-left">
+        <div className="relative z-10 w-full text-center md:text-left">
           <h3 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
             Host the <br />
             <span className="text-white">Perfect Event.</span>
@@ -32,7 +32,7 @@ export function CTASection() {
             Our bespoke services book up fast. Secure your date and let us
             handle the details of your next celebration.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          <div className="flex flex-wrap gap-4 justify-center md:justify-end">
             <Link
               href="/contact"
               className="bg-accent text-white font-black px-12 py-5 rounded-full hover:scale-105 transition-transform uppercase tracking-widest shadow-xl shadow-accent/20"
@@ -48,7 +48,7 @@ export function CTASection() {
           </div>
         </div>
 
-        <div className="relative z-10 flex-1 w-full max-w-md">
+        {/* <div className="relative z-10 flex-1 w-full max-w-md">
           <div className="bg-white/10 p-10 rounded-2xl border border-white/20 backdrop-blur-xl">
             <h4 className="text-white font-bold text-2xl mb-4">The VIP List</h4>
             <p className="text-white/70 text-sm mb-8">
@@ -72,7 +72,7 @@ export function CTASection() {
               </button>
             </form>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

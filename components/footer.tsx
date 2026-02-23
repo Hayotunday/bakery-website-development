@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, Share2, Camera } from "lucide-react";
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer
       id="contact"
@@ -17,7 +17,7 @@ export function Footer() {
           </div>
           <p className="text-sm text-primary/60 leading-relaxed mb-8">
             A sanctuary of design and flavor. Creating unforgettable cake and
-            event experiences since 1984.
+            event experiences since 2015.
           </p>
         </div>
 
@@ -84,13 +84,14 @@ export function Footer() {
           </h5>
           <ul className="space-y-5 text-sm font-medium text-primary/70">
             <li className="flex items-center gap-3">
-              <MapPin className="text-accent w-5 h-5" /> Nigeria
+              <MapPin className="text-accent w-5 h-5" /> JFFX+2QC, Lagos Rd,
+              Ikorodu, 104101, Lagos, Nigeria
             </li>
             <li className="flex items-center gap-3">
               <Phone className="text-accent w-5 h-5" /> +234 802 7815 383
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="text-accent w-5 h-5" /> hello@perfectwhite.com
+              <Mail className="text-accent w-5 h-5" /> oyegokemojisola@gmail.com
             </li>
           </ul>
         </div>
@@ -99,14 +100,6 @@ export function Footer() {
       {/* Bottom Footer */}
       <div className="max-w-6xl mx-auto pt-10 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs uppercase tracking-widest font-black text-primary/40">
         <p>© 2026 Perfect White Cakes & Events.</p>
-        <div className="flex gap-10">
-          <Link href="#" className="hover:text-accent transition-colors">
-            Privacy & Legal
-          </Link>
-          <Link href="#" className="hover:text-accent transition-colors">
-            Terms of Service
-          </Link>
-        </div>
       </div>
     </footer>
   );

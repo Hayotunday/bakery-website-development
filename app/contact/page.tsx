@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/components/header";
+import Header from "@/components/header";
 import {
   Phone,
   Mail,
@@ -208,7 +208,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-primary">Our Showroom</h3>
                 <div className="flex items-center gap-2 text-primary font-bold text-xs bg-blue-50 px-3 py-1 rounded-full">
                   <MapPin className="w-4 h-4" />
-                  Nigeria
+                  Lagos, Nigeria
                 </div>
               </div>
             </div>
@@ -222,11 +222,9 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-bold text-primary">The Studio</p>
+                    <p className="font-bold text-primary">Bakery</p>
                     <p className="text-gray-600 text-sm mt-1">
-                      456 Artisan Square, Chelsea
-                      <br />
-                      New York, NY 10011
+                      JFFX+2QC, Lagos Rd, Ikorodu, 104101, Lagos, Nigeria
                     </p>
                   </div>
                 </div>
@@ -242,15 +240,15 @@ export default function ContactPage() {
                     <p className="font-bold text-primary">Inquiries</p>
                     <div className="text-gray-600 text-sm mt-2 space-y-2">
                       <div className="flex justify-between gap-6 items-start">
-                        <span>General</span>
+                        <span>Phone</span>
                         <span className="font-semibold text-gray-800">
-                          hello@perfectwhite.com
+                          +234 802 7815 383
                         </span>
                       </div>
                       <div className="flex justify-between gap-6 items-start">
-                        <span>Events</span>
+                        <span>email</span>
                         <span className="font-semibold text-gray-800">
-                          events@perfectwhite.com
+                          oyegokemojisola@gmail.com
                         </span>
                       </div>
                     </div>
@@ -259,7 +257,7 @@ export default function ContactPage() {
               </div>
 
               {/* Social Links */}
-              <div className="flex justify-center gap-4 pt-4">
+              {/* <div className="flex justify-center gap-4 pt-4">
                 <a
                   href="#"
                   className="w-14 h-14 rounded-full bg-white border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-md hover:shadow-lg"
@@ -281,7 +279,7 @@ export default function ContactPage() {
                 >
                   <MessageCircle className="w-6 h-6" />
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

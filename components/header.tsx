@@ -13,12 +13,13 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-export function Header() {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "Gallery", href: "/gallery" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
 

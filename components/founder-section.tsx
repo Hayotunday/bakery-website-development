@@ -1,6 +1,4 @@
-import { Award } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function FounderSection() {
   return (
@@ -15,7 +13,7 @@ export default function FounderSection() {
               <div className="bg-linear-to-br from-red-400 to-amber-400 rounded-2xl overflow-hidden shadow-lg h-96">
                 <Image
                   loading="eager"
-                  src="/imgs/founder-4.jpeg"
+                  src="/imgs/founder-7.jpeg"
                   alt="Founder"
                   width={500}
                   height={500}

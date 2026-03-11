@@ -1,4 +1,12 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Instagram,
+  Youtube,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -18,6 +26,30 @@ export default function Footer() {
             A sanctuary of design and flavor. Creating unforgettable cake and
             event experiences since 2015.
           </p>
+
+          <div className="flex gap-1">
+            <Link
+              target="_blank"
+              href="https://www.facebook.com/share/14aWdKsDfk3/"
+              className="text-gray-600 bg-gray-300 hover:bg-gray-100 transition-colors flex items-center gap-2 p-2 rounded-full"
+            >
+              <Facebook size={20} />
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/perfectwhitecakes?igsh=ZnBhYno0bzVlbGJw"
+              className="text-gray-600 bg-gray-300 hover:bg-gray-100 transition-colors flex items-center gap-2 p-2 rounded-full"
+            >
+              <Instagram size={20} />
+            </Link>
+            <Link
+              target="_blank"
+              href="https://youtube.com/@perfectwhitecakes?si=hAAl_lMltnBACaqy"
+              className="text-gray-600 bg-gray-300 hover:bg-gray-100 transition-colors flex items-center gap-2 p-2 rounded-full"
+            >
+              <Youtube size={20} />
+            </Link>
+          </div>
         </div>
 
         {/* Collection */}

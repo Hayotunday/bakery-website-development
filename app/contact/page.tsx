@@ -1,9 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Youtube,
+  Link as Connect,
+} from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/header";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -296,29 +304,41 @@ export default function ContactPage() {
               </div>
 
               {/* Social Links */}
-              {/* <div className="flex justify-center gap-4 pt-4">
-                <a
-                  href="#"
-                  className="w-14 h-14 rounded-full bg-white border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-md hover:shadow-lg"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a
-                  href="#"
-                  className="w-14 h-14 rounded-full bg-white border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-md hover:shadow-lg"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-6 h-6" />
-                </a>
-                <a
-                  href="#"
-                  className="w-14 h-14 rounded-full bg-white border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-md hover:shadow-lg"
-                  aria-label="Chat"
-                >
-                  <MessageCircle className="w-6 h-6" />
-                </a>
-              </div> */}
+              <div className="p-6 bg-blue-50/50 rounded-2xl border border-primary/10 hover:border-primary/30 transition-colors">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary p-3 rounded-xl text-white flex-shrink-0">
+                    <Connect className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-primary">Socials</p>
+                    <div className="text-gray-600 text-sm mt-2 space-y-2">
+                      <div className="flex gap-1">
+                        <Link
+                          target="_blank"
+                          href="https://www.facebook.com/share/14aWdKsDfk3/"
+                          className="text-gray-600 bg-gray-300 hover:bg-gray-100 transition-colors flex items-center gap-2 p-2 rounded-full"
+                        >
+                          <Facebook size={20} /> Facebook
+                        </Link>
+                        <Link
+                          target="_blank"
+                          href="https://www.instagram.com/perfectwhitecakes?igsh=ZnBhYno0bzVlbGJw"
+                          className="text-gray-600 bg-gray-300 hover:bg-gray-100 transition-colors flex items-center gap-2 p-2 rounded-full"
+                        >
+                          <Instagram size={20} /> Instagram
+                        </Link>
+                        <Link
+                          target="_blank"
+                          href="https://youtube.com/@perfectwhitecakes?si=hAAl_lMltnBACaqy"
+                          className="text-gray-600 bg-gray-300 hover:bg-gray-100 transition-colors flex items-center gap-2 p-2 rounded-full"
+                        >
+                          <Youtube size={20} /> Youtube
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

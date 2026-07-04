@@ -88,22 +88,44 @@ export default function Footer() {
           </h5>
           <ul className="space-y-5 text-sm font-medium text-primary/70">
             <li>
-              <p className="hover:text-accent transition-colors">
+              <Link
+                href="/contact"
+                className="hover:text-accent transition-colors"
+              >
                 Event Planning
-              </p>
+              </Link>
             </li>
             <li>
-              <p className="hover:text-accent transition-colors">
+              <Link
+                href="/contact"
+                className="hover:text-accent transition-colors"
+              >
                 Catering Services
-              </p>
+              </Link>
             </li>
             <li>
-              <p className="hover:text-accent transition-colors">Workshops</p>
+              <Link
+                href="/refresher"
+                className="hover:text-accent transition-colors"
+              >
+                Refresher Class
+              </Link>
             </li>
             <li>
-              <p className="hover:text-accent transition-colors">
+              <Link
+                href="/contact"
+                className="hover:text-accent transition-colors"
+              >
+                Workshops
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="hover:text-accent transition-colors"
+              >
                 Corporate Gifting
-              </p>
+              </Link>
             </li>
           </ul>
         </div>

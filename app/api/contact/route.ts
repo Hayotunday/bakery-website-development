@@ -17,7 +17,7 @@ const createTransporter = () => {
   });
 };
 
-// Email template for owner notification
+// Email template for owner notification (general inquiries)
 const ownerEmailTemplate = (
   name: string,
   email: string,
@@ -55,6 +55,28 @@ const ownerEmailTemplate = (
       <p style="font-size: 12px; color: #999;">
         This is an automated email from your Perfect White Bakery website contact form.
       </p>
+    </div>
+  `;
+};
+
+// Email template for refresher form submissions
+const ownerEmailTemplateRefresher = (form: Record<string, any>) => {
+  const rows = Object.entries(form)
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:8px;border:1px solid #eee;font-weight:600;background:#f9f9f9">${k}</td><td style="padding:8px;border:1px solid #eee">${
+          v ?? ""
+        }</td></tr>`,
+    )
+    .join("");
+
+  return `
+    <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+      <h2 style="color: #0066cc;">New Refresher Registration - Perfect White Bakery</h2>
+      <p>A user submitted the refresher registration form. Details are below:</p>
+      <table style="border-collapse:collapse;width:100%;margin-top:16px">${rows}</table>
+      <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
+      <p style="font-size: 12px; color: #999;">This is an automated email from your Perfect White Bakery website refresher form.</p>
     </div>
   `;
 };
@@ -102,10 +124,68 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Validate required fields
-    const { name, email, eventDate, serviceType, vision } = body;
+    const serviceType = body.serviceType || "";
 
-    if (!name || !email || !eventDate || !serviceType || !vision) {
+    // Handle refresher-class submissions separately
+    if (serviceType === "refresher-class") {
+      const { fullName, email } = body;
+      if (!fullName || !email) {
+        return NextResponse.json(
+          { error: "Missing required fields" },
+          { status: 400 },
+        );
+      }
+
+      // basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return NextResponse.json(
+          { error: "Invalid email format" },
+          { status: 400 },
+        );
+      }
+
+      if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+        console.error("SMTP credentials not configured");
+        return NextResponse.json(
+          {
+            error:
+              "Email service is not properly configured. Please contact the website administrator.",
+          },
+          { status: 500 },
+        );
+      }
+
+      const transporter = createTransporter();
+
+      // send owner email with full form body
+      await transporter.sendMail({
+        from: process.env.SMTP_USER,
+        to: process.env.OWNER_EMAIL || "oyegokemojisola@gmail.com",
+        subject: `Refresher Registration: ${fullName}`,
+        html: ownerEmailTemplateRefresher(body),
+        replyTo: email,
+      });
+
+      // confirmation to registrant
+      await transporter.sendMail({
+        to: email,
+        from: process.env.SMTP_USER,
+        subject: "Refresher Registration Received - Perfect White Bakery",
+        html: `<div style="font-family:Arial,sans-serif"><p>Dear ${fullName},</p><p>Thank you for registering for our refresher class. We'll contact you shortly with next steps.</p><p>— Perfect White Bakery</p></div>`,
+      });
+
+      return NextResponse.json(
+        { success: true, message: "Registration sent" },
+        { status: 200 },
+      );
+    }
+
+    // Default: existing inquiry flow
+    const { name, email, eventDate, vision } = body;
+    const serviceTypeValue = serviceType;
+
+    if (!name || !email || !eventDate || !serviceTypeValue || !vision) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 },
@@ -140,16 +220,22 @@ export async function POST(request: Request) {
       from: process.env.SMTP_USER,
       to: process.env.OWNER_EMAIL || "oyegokemojisola@gmail.com",
       subject: `New Inquiry from ${name} - Perfect White Bakery`,
-      html: ownerEmailTemplate(name, email, eventDate, serviceType, vision),
+      html: ownerEmailTemplate(
+        name,
+        email,
+        eventDate,
+        serviceTypeValue,
+        vision,
+      ),
       replyTo: email,
     });
 
     // Send confirmation email to client
     await transporter.sendMail({
-      to: process.env.SMTP_USER,
-      from: email,
+      to: email,
+      from: process.env.SMTP_USER,
       subject: "Thank You for Your Inquiry - Perfect White Bakery",
-      html: clientEmailTemplate(name, serviceType),
+      html: clientEmailTemplate(name, serviceTypeValue),
     });
 
     return NextResponse.json(
